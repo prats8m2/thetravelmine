@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFF9F5;color:#0B2A4A;font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#D6232A;text-decoration:none}a:hover{color:#F5821F}
+@keyframes ttmRise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes ttmFade{from{opacity:0}to{opacity:1}}
+@keyframes ttmMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes ttmFloat{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(-2deg)}}
+@keyframes ttmDash{to{stroke-dashoffset:0}}
+@keyframes ttmSpin{to{transform:rotate(360deg)}}
+@keyframes ttmPulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.6);opacity:0}}
+</style>
+</helmet>
+
+<nav data-nav style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(20px,5vw,64px);transition:background .5s,padding .5s,box-shadow .5s,backdrop-filter .5s">
+  <a href="#top" style="display:flex;align-items:center"><img src="assets/logo-clean.png" alt="The Travel Mine" style="height:48px;width:auto;display:block"></a>
+  <div style="display:flex;gap:clamp(16px,2.5vw,36px);align-items:center;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">
+    <a href="#about" style="color:#0B2A4A" style-hover="color:#D6232A">About</a>
+    <a href="#expertise" style="color:#0B2A4A" style-hover="color:#D6232A">Expertise</a>
+    <a href="#solutions" style="color:#0B2A4A" style-hover="color:#D6232A">Solutions</a>
+    <a href="#corporate" style="color:#0B2A4A" style-hover="color:#D6232A">Corporate</a>
+    <a href="#contact" style="color:#fff;background:linear-gradient(120deg,#D6232A,#F5821F);padding:12px 22px;border-radius:999px;box-shadow:0 8px 24px rgba(214,35,42,.28);transition:transform .3s,box-shadow .3s" style-hover="color:#fff;transform:translateY(-2px);box-shadow:0 14px 32px rgba(214,35,42,.38)">Plan a journey</a>
+  </div>
+</nav>
+
+<section id="top" data-screen-label="Hero" style="position:relative;min-height:100vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));align-items:center;gap:clamp(24px,4vw,64px);padding:140px clamp(20px,5vw,64px) 80px;max-width:1440px;margin:0 auto;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 50% at 80% 20%,rgba(245,130,31,.18),transparent 70%),radial-gradient(50% 40% at 10% 90%,rgba(214,35,42,.12),transparent 70%)"></div>
+  <div style="position:relative;z-index:1">
+    <div style="display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:#D6232A;animation:ttmRise .9s .1s cubic-bezier(.2,.7,.2,1) both">
+      <span style="width:34px;height:2px;background:linear-gradient(90deg,#D6232A,#F5821F)"></span>Explore · Discover · Experience
+    </div>
+    <h1 style="font-family:Outfit,sans-serif;font-weight:800;font-size:clamp(46px,6.6vw,104px);line-height:.96;letter-spacing:-.03em;margin:26px 0 0;color:#0B2A4A">
+      <span style="display:block;overflow:hidden"><span style="display:block;animation:ttmRise 1s .25s cubic-bezier(.2,.7,.2,1) both">More than</span></span>
+      <span style="display:block;overflow:hidden"><span style="display:block;animation:ttmRise 1s .4s cubic-bezier(.2,.7,.2,1) both">travel.</span></span>
+      <span style="display:block;overflow:hidden"><span style="display:block;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;letter-spacing:-.01em;background:linear-gradient(90deg,#D6232A 0%,#F5821F 60%,#F7C542 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.1em;animation:ttmRise 1s .55s cubic-bezier(.2,.7,.2,1) both">Journeys worth remembering.</span></span>
+    </h1>
+    <p style="max-width:520px;font-size:clamp(16px,1.3vw,19px);line-height:1.65;color:#3B4A5C;margin:32px 0 0;text-wrap:pretty;animation:ttmRise 1s .75s cubic-bezier(.2,.7,.2,1) both">A premier Travel Management Company in India, creating extraordinary journeys defined by sophistication, personalization and effortless service.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:40px;animation:ttmRise 1s .9s cubic-bezier(.2,.7,.2,1) both">
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:12px;color:#fff;background:#0B2A4A;padding:18px 30px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .3s,background .3s" style-hover="color:#fff;background:#D6232A;transform:translateY(-3px)">Begin your journey <span style="font-size:18px">→</span></a>
+      <a href="#solutions" style="display:inline-flex;align-items:center;gap:12px;color:#0B2A4A;padding:18px 30px;border-radius:999px;font-weight:600;font-size:15px;border:1.5px solid rgba(11,42,74,.2);transition:border-color .3s,transform .3s" style-hover="color:#D6232A;border-color:#D6232A;transform:translateY(-3px)">Our solutions</a>
+    </div>
+    <div style="display:flex;gap:clamp(28px,4vw,56px);margin-top:64px;padding-top:32px;border-top:1px solid rgba(11,42,74,.12);animation:ttmFade 1.2s 1.2s both">
+      <div><div style="font-family:Outfit,sans-serif;font-weight:700;font-size:34px;line-height:1;color:#0B2A4A"><span data-count="14">0</span>+</div><div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B7A8C;margin-top:8px;font-weight:600">Years of trust</div></div>
+      <div><div style="font-family:Outfit,sans-serif;font-weight:700;font-size:34px;line-height:1;color:#0B2A4A"><span data-count="12">0</span>+</div><div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B7A8C;margin-top:8px;font-weight:600">Travel professionals</div></div>
+      <div><div style="font-family:Outfit,sans-serif;font-weight:700;font-size:34px;line-height:1;color:#0B2A4A">24<span style="color:#F5821F">×</span>7</div><div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B7A8C;margin-top:8px;font-weight:600">Priority assistance</div></div>
+    </div>
+  </div>
+  <div style="position:relative;z-index:1;min-height:420px;animation:ttmFade 1.4s .5s both">
+    <div style="position:absolute;inset:6% 8% 4% 4%;border-radius:200px 200px 32px 32px;background:linear-gradient(160deg,#F7C542,#F5821F 50%,#D6232A);transform:rotate(4deg);opacity:.9"></div>
+    <div data-parallax style="position:relative;border-radius:200px 200px 28px 28px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 80px -30px rgba(11,42,74,.45);will-change:transform">
+      <img src="assets/hero.jpg" alt="Traveller overlooking Santorini" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transform:scale(1.05)">
+    </div>
+    <div style="position:absolute;left:-6%;bottom:12%;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-radius:20px;padding:18px 22px;box-shadow:0 20px 50px -20px rgba(11,42,74,.4);animation:ttmFloat 6s ease-in-out infinite;display:flex;align-items:center;gap:14px">
+      <span style="position:relative;width:12px;height:12px;border-radius:50%;background:#D6232A;flex:none"><span style="position:absolute;inset:0;border-radius:50%;background:#D6232A;animation:ttmPulse 2s infinite"></span></span>
+      <div><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6B7A8C;font-weight:700">Now curating</div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:16px;color:#0B2A4A">Santorini · Maldives · Paris</div></div>
+    </div>
+    <svg viewBox="0 0 300 120" style="position:absolute;right:-4%;top:-2%;width:46%;overflow:visible" aria-hidden="true">
+      <path d="M6 100 C 60 20, 160 130, 290 18" fill="none" stroke="#D6232A" stroke-width="2" stroke-dasharray="6 8" stroke-linecap="round" style="stroke-dashoffset:600;animation:ttmDash 3s 1s ease-out forwards" pathLength="600"></path>
+      <path d="M274 10 l22 8 l-24 10 l4 -9 z" fill="#D6232A"></path>
+    </svg>
+  </div>
+</section>
+
+<div style="overflow:hidden;border-top:1px solid rgba(11,42,74,.08);border-bottom:1px solid rgba(11,42,74,.08);background:#fff;padding:20px 0">
+  <div style="display:flex;width:max-content;animation:ttmMarquee 40s linear infinite;font-family:Outfit,sans-serif;font-weight:500;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:#0B2A4A">
+    <div style="display:flex;gap:56px;padding-right:56px;white-space:nowrap"><span>Luxury Leisure</span><span style="color:#F5821F">✦</span><span>Outbound Travel</span><span style="color:#F5821F">✦</span><span>Inbound Travel</span><span style="color:#F5821F">✦</span><span>MICE &amp; Incentives</span><span style="color:#F5821F">✦</span><span>Corporate Travel</span><span style="color:#F5821F">✦</span><span>Cruise Journeys</span><span style="color:#F5821F">✦</span><span>Private Charters</span><span style="color:#F5821F">✦</span></div>
+    <div style="display:flex;gap:56px;padding-right:56px;white-space:nowrap" aria-hidden="true"><span>Luxury Leisure</span><span style="color:#F5821F">✦</span><span>Outbound Travel</span><span style="color:#F5821F">✦</span><span>Inbound Travel</span><span style="color:#F5821F">✦</span><span>MICE &amp; Incentives</span><span style="color:#F5821F">✦</span><span>Corporate Travel</span><span style="color:#F5821F">✦</span><span>Cruise Journeys</span><span style="color:#F5821F">✦</span><span>Private Charters</span><span style="color:#F5821F">✦</span></div>
+  </div>
+</div>
+
+<section id="about" data-screen-label="About" style="max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+  <div data-reveal style="position:relative;order:2">
+    <div style="border-radius:28px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 40px 80px -30px rgba(11,42,74,.35)"><img src="assets/santorini.jpg" alt="Santorini at sunset" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block"></div>
+    <div style="position:absolute;right:-16px;bottom:-24px;background:#0B2A4A;color:#fff;border-radius:22px;padding:26px 28px;max-width:280px;box-shadow:0 30px 60px -20px rgba(11,42,74,.5)">
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:24px;line-height:1.3;color:#F7C542">“Travel should be more than a destination.”</div>
+      <div style="font-size:13px;line-height:1.6;color:rgba(255,255,255,.75);margin-top:12px">It should be an experience that is seamless, inspiring and distinctly yours.</div>
+    </div>
+  </div>
+  <div style="order:1">
+    <div data-reveal style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:#D6232A">The art of exceptional travel</div>
+    <h2 data-reveal style="font-family:Outfit,sans-serif;font-weight:700;font-size:clamp(34px,4vw,60px);line-height:1.04;letter-spacing:-.025em;margin:20px 0 0;color:#0B2A4A;text-wrap:pretty">A legacy spanning over <span style="color:#F5821F">14 years</span> in Indian tourism.</h2>
+    <p data-reveal style="font-size:17px;line-height:1.7;color:#3B4A5C;margin:28px 0 0;text-wrap:pretty">The Travel Mine has built its reputation on the pillars of trust, integrity, discretion and excellence. Independent and proprietor-led, we combine deep destination knowledge, strong industry relationships and specialized expertise across every vertical of travel.</p>
+    <p data-reveal style="font-size:17px;line-height:1.7;color:#3B4A5C;margin:18px 0 0;text-wrap:pretty">Luxury is personal. Every itinerary we create is shaped around the preferences, aspirations and personality of the traveller: from exclusive escapes and tailor-made holidays to bespoke MICE programs.</p>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:44px">
+      <div style="padding:22px 0;border-top:2px solid #D6232A"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:17px;color:#0B2A4A">Personal attention</div><div style="font-size:14px;color:#6B7A8C;margin-top:6px;line-height:1.5">Backed by professional expertise.</div></div>
+      <div style="padding:22px 0;border-top:2px solid #F5821F"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:17px;color:#0B2A4A">Passionate team</div><div style="font-size:14px;color:#6B7A8C;margin-top:6px;line-height:1.5">That goes beyond expectations.</div></div>
+      <div style="padding:22px 0;border-top:2px solid #F7C542"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:17px;color:#0B2A4A">Industry network</div><div style="font-size:14px;color:#6B7A8C;margin-top:6px;line-height:1.5">For exceptional opportunities.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise" data-screen-label="Expertise" style="background:#0B2A4A;color:#fff;padding:clamp(80px,10vw,140px) 0;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(40% 60% at 90% 10%,rgba(245,130,31,.25),transparent 70%),radial-gradient(30% 40% at 5% 100%,rgba(214,35,42,.25),transparent 70%)"></div>
+  <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,5vw,64px);position:relative">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px">
+      <div>
+        <div data-reveal style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:#F7C542">Our expertise</div>
+        <h2 data-reveal style="font-family:Outfit,sans-serif;font-weight:700;font-size:clamp(34px,4vw,60px);line-height:1.04;letter-spacing:-.025em;margin:20px 0 0;max-width:640px;text-wrap:pretty">Five verticals. One standard of excellence.</h2>
+      </div>
+      <p data-reveal style="max-width:380px;font-size:16px;line-height:1.7;color:rgba(255,255,255,.7);margin:0">Refined travel solutions across Luxury Leisure, Outbound, Inbound, MICE and Corporate travel.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:64px">
+      <div data-reveal style="position:relative;border-radius:24px;padding:36px 28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .5s cubic-bezier(.2,.7,.2,1),background .5s" style-hover="transform:translateY(-10px);background:rgba(255,255,255,.1)">
+        <div style="font-family:Outfit,sans-serif;font-size:13px;letter-spacing:.2em;color:#F7C542;font-weight:600">01</div>
+        <div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:24px;line-height:1.15">Luxury Leisure Travel</div><div style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.65);margin-top:12px">Exclusive escapes and tailor-made holidays shaped around you.</div></div>
+      </div>
+      <div data-reveal="1" style="position:relative;border-radius:24px;padding:36px 28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .5s cubic-bezier(.2,.7,.2,1),background .5s" style-hover="transform:translateY(-10px);background:rgba(255,255,255,.1)">
+        <div style="font-family:Outfit,sans-serif;font-size:13px;letter-spacing:.2em;color:#F7C542;font-weight:600">02</div>
+        <div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:24px;line-height:1.15">Outbound Travel</div><div style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.65);margin-top:12px">International journeys, from first flight to final return, seamlessly delivered.</div></div>
+      </div>
+      <div data-reveal="2" style="position:relative;border-radius:24px;padding:36px 28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .5s cubic-bezier(.2,.7,.2,1),background .5s" style-hover="transform:translateY(-10px);background:rgba(255,255,255,.1)">
+        <div style="font-family:Outfit,sans-serif;font-size:13px;letter-spacing:.2em;color:#F7C542;font-weight:600">03</div>
+        <div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:24px;line-height:1.15">Inbound Travel</div><div style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.65);margin-top:12px">Experiential India, curated with local insight and global standards.</div></div>
+      </div>
+      <div data-reveal="3" style="position:relative;border-radius:24px;padding:36px 28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .5s cubic-bezier(.2,.7,.2,1),background .5s" style-hover="transform:translateY(-10px);background:rgba(255,255,255,.1)">
+        <div style="font-family:Outfit,sans-serif;font-size:13px;letter-spacing:.2em;color:#F7C542;font-weight:600">04</div>
+        <div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:24px;line-height:1.15">MICE &amp; Incentive Travel</div><div style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.65);margin-top:12px">Meetings, incentives, conferences and events, executed with precision.</div></div>
+      </div>
+      <div data-reveal="4" style="position:relative;border-radius:24px;padding:36px 28px;background:linear-gradient(160deg,#D6232A,#F5821F);border:1px solid rgba(255,255,255,.1);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .5s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-10px)">
+        <div style="font-family:Outfit,sans-serif;font-size:13px;letter-spacing:.2em;color:#fff;font-weight:600">05</div>
+        <div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:24px;line-height:1.15">Corporate Travel</div><div style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.9);margin-top:12px">Bespoke travel management for organisations that value discretion and efficiency.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solutions" data-screen-label="Solutions" style="max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) clamp(20px,5vw,64px)">
+  <div style="max-width:720px">
+    <div data-reveal style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:#D6232A">Our complete travel solutions</div>
+    <h2 data-reveal style="font-family:Outfit,sans-serif;font-weight:700;font-size:clamp(34px,4vw,60px);line-height:1.04;letter-spacing:-.025em;margin:20px 0 0;color:#0B2A4A;text-wrap:pretty">Curated travel. Exceptional service. <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#F5821F">Seamlessly delivered.</span></h2>
+    <p data-reveal style="font-size:17px;line-height:1.7;color:#3B4A5C;margin:28px 0 0;text-wrap:pretty">An end-to-end portfolio of premium travel solutions designed around the needs of discerning travellers and corporate clients.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(11,42,74,.1);border:1px solid rgba(11,42,74,.1);border-radius:24px;overflow:hidden;margin-top:64px">
+    <div data-reveal style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Domestic &amp; International Air Travel</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Access to leading carriers, preferred routing and personalised itinerary assistance.</div></div>
+    <div data-reveal="1" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Group Travel</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Expert group ticketing for corporate delegations, family journeys and large-scale requirements.</div></div>
+    <div data-reveal="2" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Visa &amp; Passport Assistance</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Professional support simplifying documentation and the application journey.</div></div>
+    <div data-reveal style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Chauffeur-Driven Car Hire</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Premium vehicles and chauffeur-driven services for a refined travel experience.</div></div>
+    <div data-reveal="1" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">24×7 Priority Travel Assistance</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Round-the-clock emergency support with dedicated Sunday office assistance.</div></div>
+    <div data-reveal="2" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Cruise Journeys</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Domestic and international cruise packages with world-class hospitality at sea.</div></div>
+    <div data-reveal style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Bespoke Holidays</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Tailor-made domestic and international holidays curated around your preferences.</div></div>
+    <div data-reveal="1" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Meet &amp; Assist Airport Services</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">VIP airport facilitation for effortless arrivals and departures.</div></div>
+    <div data-reveal="2" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Exclusive Travel Intelligence</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Regular newsletters with curated airline offers, hotel promotions and privileged deals.</div></div>
+    <div data-reveal style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Luxury Hotel &amp; Resort Reservations</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">A curated selection of premium hotels, resorts and luxury properties worldwide.</div></div>
+    <div data-reveal="1" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">MICE &amp; Corporate Events</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">End-to-end meetings, incentives, conferences and events delivered with precision.</div></div>
+    <div data-reveal="2" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Corporate Travel MIS &amp; Cost Analytics</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Comprehensive reporting to monitor, analyse and optimise travel expenditure.</div></div>
+    <div data-reveal style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Private &amp; Charter Flights</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Exclusive charter solutions for individuals, families, groups and time-sensitive journeys.</div></div>
+    <div data-reveal="1" style="background:#fff;padding:32px 28px;transition:background .4s" style-hover="background:#FFF3EA"><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:18px;color:#0B2A4A">Travel Insurance &amp; Protection</div><div style="font-size:14px;line-height:1.6;color:#6B7A8C;margin-top:10px">Comprehensive insurance for greater confidence throughout your journey.</div></div>
+    <div data-reveal="2" style="background:linear-gradient(160deg,#D6232A,#F5821F);padding:32px 28px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:20px"><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:26px;line-height:1.25">Your journey deserves nothing ordinary.</div><a href="#contact" style="color:#fff;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase" style-hover="color:#FFF3EA">Experience travel, elevated →</a></div>
+  </div>
+</section>
+
+<section id="corporate" data-screen-label="Corporate" style="background:#fff;padding:clamp(80px,10vw,140px) 0">
+  <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+    <div style="position:sticky;top:120px">
+      <div data-reveal style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:#D6232A">Bespoke travel management</div>
+      <h2 data-reveal style="font-family:Outfit,sans-serif;font-weight:700;font-size:clamp(34px,4vw,60px);line-height:1.04;letter-spacing:-.025em;margin:20px 0 0;color:#0B2A4A;text-wrap:pretty">Our service framework for corporate travel.</h2>
+      <p data-reveal style="font-size:17px;line-height:1.7;color:#3B4A5C;margin:28px 0 0;text-wrap:pretty">Premium travel management goes far beyond securing flights and accommodation. Personalized attention, proactive management, strategic cost optimization and privileged airline expertise ensure every journey is handled with discretion, precision and care.</p>
+      <div data-reveal style="margin-top:40px;border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 40px 80px -30px rgba(11,42,74,.35)"><img src="assets/airport.jpg" alt="Business traveller at the airport" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div data-reveal style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:32px;border-radius:22px;background:#FFF9F5;border:1px solid rgba(11,42,74,.08);transition:transform .4s,box-shadow .4s" style-hover="transform:translateX(8px);box-shadow:0 24px 50px -30px rgba(11,42,74,.35)"><div style="font-family:Outfit,sans-serif;font-weight:800;font-size:40px;line-height:1;background:linear-gradient(120deg,#D6232A,#F5821F);-webkit-background-clip:text;background-clip:text;color:transparent">01</div><div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:21px;color:#0B2A4A">Personalized Travel Concierge</div><div style="font-size:15px;line-height:1.65;color:#3B4A5C;margin-top:10px">A continuously updated profile for every frequent traveller: preferences, seating, loyalty memberships and dietary needs, anticipated before you ask.</div></div></div>
+      <div data-reveal style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:32px;border-radius:22px;background:#FFF9F5;border:1px solid rgba(11,42,74,.08);transition:transform .4s,box-shadow .4s" style-hover="transform:translateX(8px);box-shadow:0 24px 50px -30px rgba(11,42,74,.35)"><div style="font-family:Outfit,sans-serif;font-weight:800;font-size:40px;line-height:1;background:linear-gradient(120deg,#D6232A,#F5821F);-webkit-background-clip:text;background-clip:text;color:transparent">02</div><div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:21px;color:#0B2A4A">Proactive PNR Monitoring</div><div style="font-size:15px;line-height:1.65;color:#3B4A5C;margin-top:10px">Every active booking reviewed daily for better fares, improved routing and enhanced flexibility, with advantageous options proactively advised.</div></div></div>
+      <div data-reveal style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:32px;border-radius:22px;background:#FFF9F5;border:1px solid rgba(11,42,74,.08);transition:transform .4s,box-shadow .4s" style-hover="transform:translateX(8px);box-shadow:0 24px 50px -30px rgba(11,42,74,.35)"><div style="font-family:Outfit,sans-serif;font-weight:800;font-size:40px;line-height:1;background:linear-gradient(120deg,#D6232A,#F5821F);-webkit-background-clip:text;background-clip:text;color:transparent">03</div><div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:21px;color:#0B2A4A">Service Excellence &amp; Continuous Review</div><div style="font-size:15px;line-height:1.65;color:#3B4A5C;margin-top:10px">Our commitment does not end once a booking is confirmed. Feedback, service levels and response times are continuously evaluated.</div></div></div>
+      <div data-reveal style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:32px;border-radius:22px;background:#FFF9F5;border:1px solid rgba(11,42,74,.08);transition:transform .4s,box-shadow .4s" style-hover="transform:translateX(8px);box-shadow:0 24px 50px -30px rgba(11,42,74,.35)"><div style="font-family:Outfit,sans-serif;font-weight:800;font-size:40px;line-height:1;background:linear-gradient(120deg,#D6232A,#F5821F);-webkit-background-clip:text;background-clip:text;color:transparent">04</div><div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:21px;color:#0B2A4A">Executive Review Meetings</div><div style="font-size:15px;line-height:1.65;color:#3B4A5C;margin-top:10px">Periodic sessions with your travel committee to review performance, emerging trends, savings opportunities and strategic recommendations.</div></div></div>
+      <div data-reveal style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:32px;border-radius:22px;background:#FFF9F5;border:1px solid rgba(11,42,74,.08);transition:transform .4s,box-shadow .4s" style-hover="transform:translateX(8px);box-shadow:0 24px 50px -30px rgba(11,42,74,.35)"><div style="font-family:Outfit,sans-serif;font-weight:800;font-size:40px;line-height:1;background:linear-gradient(120deg,#D6232A,#F5821F);-webkit-background-clip:text;background-clip:text;color:transparent">05</div><div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:21px;color:#0B2A4A">Frequent Flyer Program Management</div><div style="font-size:15px;line-height:1.65;color:#3B4A5C;margin-top:10px">Up-to-date loyalty records, timely communication of promotions and assistance with mileage redemption and upgrades.</div></div></div>
+      <div data-reveal style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:32px;border-radius:22px;background:#FFF9F5;border:1px solid rgba(11,42,74,.08);transition:transform .4s,box-shadow .4s" style-hover="transform:translateX(8px);box-shadow:0 24px 50px -30px rgba(11,42,74,.35)"><div style="font-family:Outfit,sans-serif;font-weight:800;font-size:40px;line-height:1;background:linear-gradient(120deg,#D6232A,#F5821F);-webkit-background-clip:text;background-clip:text;color:transparent">06</div><div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:21px;color:#0B2A4A">Airline Negotiation &amp; Travel Spend Expertise</div><div style="font-size:15px;line-height:1.65;color:#3B4A5C;margin-top:10px">Continuous analysis of routes, classes and volumes to balance cost efficiency with traveller comfort and corporate priorities.</div></div></div>
+      <div data-reveal style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:32px;border-radius:22px;background:#0B2A4A;color:#fff;transition:transform .4s,box-shadow .4s" style-hover="transform:translateX(8px);box-shadow:0 24px 50px -30px rgba(11,42,74,.6)"><div style="font-family:Outfit,sans-serif;font-weight:800;font-size:40px;line-height:1;color:#F7C542">07</div><div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:21px">Strategic Negotiation Support</div><div style="font-size:15px;line-height:1.65;color:rgba(255,255,255,.75);margin-top:10px">Corporate discounts, route-specific agreements and preferential fares, maximizing the value of every travel rupee.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Commitment" style="max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) clamp(20px,5vw,64px)">
+  <div style="text-align:center;max-width:720px;margin:0 auto">
+    <div data-reveal style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:#D6232A">Our commitment to you</div>
+    <h2 data-reveal style="font-family:Outfit,sans-serif;font-weight:700;font-size:clamp(34px,4vw,60px);line-height:1.04;letter-spacing:-.025em;margin:20px 0 0;color:#0B2A4A;text-wrap:pretty">Integrity. Precision. Personalization. <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#F5821F">Excellence.</span></h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:64px">
+    <div data-reveal style="padding:40px 32px;border-radius:24px;background:#fff;border:1px solid rgba(11,42,74,.08);transition:transform .5s,box-shadow .5s" style-hover="transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(11,42,74,.35)"><div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(140deg,#D6232A,#F5821F)"></div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:22px;color:#0B2A4A;margin-top:26px">The details matter</div><div style="font-size:15px;line-height:1.65;color:#6B7A8C;margin-top:10px">The perfectly timed arrival. The thoughtfully selected experience.</div></div>
+    <div data-reveal="1" style="padding:40px 32px;border-radius:24px;background:#fff;border:1px solid rgba(11,42,74,.08);transition:transform .5s,box-shadow .5s" style-hover="transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(11,42,74,.35)"><div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(140deg,#F5821F,#F7C542)"></div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:22px;color:#0B2A4A;margin-top:26px">Effortless connections</div><div style="font-size:15px;line-height:1.65;color:#6B7A8C;margin-top:10px">The smoothest journeys, from start to finish.</div></div>
+    <div data-reveal="2" style="padding:40px 32px;border-radius:24px;background:#fff;border:1px solid rgba(11,42,74,.08);transition:transform .5s,box-shadow .5s" style-hover="transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(11,42,74,.35)"><div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(140deg,#0B2A4A,#1F4E7A)"></div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:22px;color:#0B2A4A;margin-top:26px">Discreet assistance</div><div style="font-size:15px;line-height:1.65;color:#6B7A8C;margin-top:10px">Support when you need it, where you need it.</div></div>
+    <div data-reveal="3" style="padding:40px 32px;border-radius:24px;background:#fff;border:1px solid rgba(11,42,74,.08);transition:transform .5s,box-shadow .5s" style-hover="transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(11,42,74,.35)"><div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(140deg,#D6232A,#0B2A4A)"></div><div style="font-family:Outfit,sans-serif;font-weight:600;font-size:22px;color:#0B2A4A;margin-top:26px">Peace of mind</div><div style="font-size:15px;line-height:1.65;color:#6B7A8C;margin-top:10px">Confidence in every detail, always.</div></div>
+  </div>
+</section>
+
+<section data-screen-label="CEO" style="background:#0B2A4A;color:#fff;padding:clamp(80px,10vw,140px) clamp(20px,5vw,64px);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 60% at 50% 100%,rgba(214,35,42,.3),transparent 70%)"></div>
+  <div data-reveal style="max-width:900px;margin:0 auto;text-align:center;position:relative">
+    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:80px;line-height:.6;color:#F7C542">“</div>
+    <p style="font-family:Outfit,sans-serif;font-weight:400;font-size:clamp(24px,2.8vw,40px);line-height:1.3;letter-spacing:-.015em;margin:24px 0 0;text-wrap:pretty">Exceptional travel is more than a journey. It is an experience crafted around your aspirations, enriched by discovery and elevated by impeccable service. We aspire to be your trusted travel concierge, your advisor and your partner in discovering the world.</p>
+    <div style="margin-top:40px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#F7C542">Chief Executive Officer</div>
+    <div style="font-size:14px;color:rgba(255,255,255,.65);margin-top:6px">The Travel Mine</div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) clamp(20px,5vw,64px)">
+  <div data-reveal style="position:relative;border-radius:32px;overflow:hidden;background:linear-gradient(120deg,#D6232A 0%,#F5821F 70%,#F7C542 120%);padding:clamp(48px,6vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,72px);color:#fff;align-items:center">
+    <div style="position:absolute;right:-8%;top:-30%;width:50%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.25);pointer-events:none"></div>
+    <div style="position:absolute;right:2%;top:-10%;width:30%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.25);pointer-events:none"></div>
+    <div style="position:relative">
+      <div style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.85)">Travel with purpose</div>
+      <h2 style="font-family:Outfit,sans-serif;font-weight:700;font-size:clamp(36px,4.5vw,68px);line-height:1;letter-spacing:-.03em;margin:20px 0 0;text-wrap:pretty">Your world. Our expertise. <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:400">An extraordinary journey.</span></h2>
+      <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,.9);margin:28px 0 0;max-width:520px;text-wrap:pretty">Whether it is a last-minute business trip, a private family escape, an incentive journey or a once-in-a-lifetime holiday, our team delivers every detail with discretion, efficiency and personalised attention.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:40px">
+        <a href="mailto:sales@thetravelmine.com" style="display:inline-flex;align-items:center;gap:10px;color:#D6232A;background:#fff;padding:18px 30px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .3s" style-hover="color:#0B2A4A;transform:translateY(-3px)">sales@thetravelmine.com</a>
+        <a href="tel:+919315431766" style="display:inline-flex;align-items:center;gap:10px;color:#fff;padding:18px 30px;border-radius:999px;font-weight:600;font-size:15px;border:1.5px solid rgba(255,255,255,.6);transition:background .3s,transform .3s" style-hover="color:#fff;background:rgba(255,255,255,.15);transform:translateY(-3px)">+91 93154 31766</a>
+      </div>
+    </div>
+    <div style="position:relative;background:rgba(255,255,255,.14);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.3);border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:26px">
+      <div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.8)">Visit</div><div style="font-size:16px;line-height:1.6;margin-top:8px">30/4, Ground Floor, West Patel Nagar<br>New Delhi 110008, India</div></div>
+      <div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.8)">Write</div><div style="font-size:16px;line-height:1.6;margin-top:8px"><a href="mailto:info@thetravelmine.com" style="color:#fff" style-hover="color:#FFF3EA">info@thetravelmine.com</a><br><a href="mailto:sales@thetravelmine.com" style="color:#fff" style-hover="color:#FFF3EA">sales@thetravelmine.com</a></div></div>
+      <div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.8)">Follow</div><div style="display:flex;gap:16px;margin-top:8px;font-size:16px;font-weight:600"><a href="#" style="color:#fff" style-hover="color:#FFF3EA">Instagram</a><a href="#" style="color:#fff" style-hover="color:#FFF3EA">Facebook</a><a href="#" style="color:#fff" style-hover="color:#FFF3EA">WhatsApp</a></div></div>
+    </div>
+  </div>
+</section>
+
+<footer style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,5vw,64px) 48px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;font-size:13px;color:#6B7A8C">
+  <img src="assets/logo-clean.png" alt="The Travel Mine" style="height:40px;width:auto">
+  <div style="display:flex;flex-wrap:wrap;gap:24px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px"><a href="#about" style="color:#0B2A4A" style-hover="color:#D6232A">About</a><a href="#expertise" style="color:#0B2A4A" style-hover="color:#D6232A">Expertise</a><a href="#solutions" style="color:#0B2A4A" style-hover="color:#D6232A">Solutions</a><a href="#corporate" style="color:#0B2A4A" style-hover="color:#D6232A">Corporate</a><a href="#contact" style="color:#0B2A4A" style-hover="color:#D6232A">Contact</a></div>
+  <div>© 2026 The Travel Mine · www.thetravelmine.com</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document;
+    const motion = this.props.motion ?? true;
+    const ease = 'cubic-bezier(.2,.7,.2,1)';
+    // Scroll reveal
+    const els = root.querySelectorAll('[data-reveal]');
+    els.forEach(el => {
+      if (!motion) return;
+      const i = parseInt(el.getAttribute('data-reveal') || '0', 10);
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = `opacity .9s ${ease} ${i * .12}s, transform .9s ${ease} ${i * .12}s`;
+    });
+    if (motion && 'IntersectionObserver' in window) {
+      this._io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'none';
+            this._io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(el => this._io.observe(el));
+    }
+    // Count-up
+    const counters = root.querySelectorAll('[data-count]');
+    const runCount = el => {
+      const to = parseInt(el.getAttribute('data-count'), 10), t0 = performance.now(), dur = 1600;
+      const step = t => { const p = Math.min(1, (t - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - p, 3))); el.textContent = v; if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    };
+    counters.forEach(el => motion ? setTimeout(() => runCount(el), 1200) : (el.textContent = el.getAttribute('data-count')));
+    // Nav + parallax
+    const nav = root.querySelector('[data-nav]');
+    const hero = root.querySelector('[data-parallax]');
+    this._onScroll = () => {
+      const y = window.scrollY || 0;
+      if (nav) {
+        const on = y > 40;
+        nav.style.background = on ? 'rgba(255,249,245,.82)' : 'transparent';
+        nav.style.backdropFilter = on ? 'blur(16px)' : 'none';
+        nav.style.padding = on ? '12px clamp(20px,5vw,64px)' : '18px clamp(20px,5vw,64px)';
+        nav.style.boxShadow = on ? '0 10px 30px -20px rgba(11,42,74,.3)' : 'none';
+      }
+      if (hero && motion && y < window.innerHeight) hero.style.transform = `translateY(${y * 0.12}px)`;
+    };
+    this._onScroll();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
