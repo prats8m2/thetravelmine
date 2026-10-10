@@ -94,15 +94,29 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
     radial-gradient(64% 32% at 50% 78%,rgba(255,255,255,.82),rgba(255,255,255,0) 78%)}
 .ttm-skydark b:nth-child(odd){animation:ttmDrift 38s ease-in-out infinite alternate}
 .ttm-skydark b:nth-child(even){animation:ttmDriftBack 52s ease-in-out infinite alternate}
-.ttm-plane{position:absolute;top:0;left:0;width:38px;height:38px;margin:-19px 0 0 -19px;
+/* The plane rides an overlay ABOVE the page, climbing the viewport on a
+   vertical lane as you scroll. Only the aircraft and a couple of thin wisps
+   live up here — the heavy cloud banks stay behind the type, where they
+   cannot eat into the contrast of body copy. Under the drawer (45)/nav (50). */
+.ttm-flyover{position:fixed;inset:0;z-index:44;pointer-events:none;overflow:hidden;contain:layout paint}
+.ttm-plane{position:absolute;top:0;left:0;width:52px;height:52px;margin:-26px 0 0 -26px;
   will-change:transform,opacity;opacity:0}
-.ttm-plane svg{width:100%;height:100%;display:block;color:var(--orange);transform:rotate(90deg);
-  filter:drop-shadow(0 3px 7px rgba(11,42,74,.10))}
-/* Dashed contrail paying out behind the nose, fading as it goes. */
-.ttm-plane i{position:absolute;right:76%;top:50%;width:190px;height:2px;margin-top:-1px;
-  background:repeating-linear-gradient(90deg,rgba(245,130,31,.6) 0 7px,transparent 7px 17px);
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 85%);
-  mask-image:linear-gradient(90deg,transparent,#000 85%)}
+.ttm-plane svg{width:100%;height:100%;display:block;color:var(--orange);
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.55)) drop-shadow(0 5px 12px rgba(11,42,74,.22))}
+/* Contrail pays out vertically below the tail and fades as it falls behind. */
+.ttm-plane i{position:absolute;left:50%;top:70%;width:2.5px;height:250px;margin-left:-1.25px;
+  border-radius:2px;
+  background:repeating-linear-gradient(180deg,rgba(245,130,31,.75) 0 8px,transparent 8px 18px);
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 88%);
+  mask-image:linear-gradient(180deg,#000,transparent 88%)}
+/* Thin wisps painted over the plane, so it slips behind cloud as it climbs.
+   Kept faint enough to leave text underneath untouched. */
+.ttm-wisp{position:absolute;top:-240px;will-change:transform}
+.ttm-wisp span{display:block;width:100%;height:100%;
+  background:
+    radial-gradient(44% 48% at 30% 58%,rgba(255,255,255,.95),rgba(255,255,255,0) 74%),
+    radial-gradient(38% 62% at 56% 46%,rgba(255,255,255,.98),rgba(255,255,255,0) 76%),
+    radial-gradient(60% 30% at 50% 72%,rgba(255,255,255,.85),rgba(255,255,255,0) 78%)}
 
 .ttm-nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:var(--nav-gap) var(--gut);transition:padding .5s var(--ease)}
 .ttm-nav[data-scrolled]{--nav-gap:10px}
@@ -279,9 +293,10 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .ttm-sky span,.ttm-ken,.ttm-sheen::before,.ttm-compass .r1,.ttm-compass .r2,.ttm-cta::before{animation:none!important}
   .ttm-cloud span,.ttm-skydark b{animation:none!important}
   .ttm-skydark b:nth-child(n+3){display:none}
+  .ttm-wisp:nth-of-type(odd){display:none}
   .ttm-cloud[data-lite="0"]{display:none}
-  .ttm-plane{width:34px;height:34px;margin:-17px 0 0 -17px}
-  .ttm-plane i{width:110px}
+  .ttm-plane{width:40px;height:40px;margin:-20px 0 0 -20px}
+  .ttm-plane i{height:150px}
   .ttm-sky span{filter:blur(30px)}
   /* 100vh reflows every time the mobile URL bar shows/hides mid-scroll */
   #top{min-height:auto!important}
@@ -290,7 +305,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .ttm-img>img{clip-path:none!important}
-  .ttm-flight,.ttm-skydark{display:none!important}
+  .ttm-flight,.ttm-skydark,.ttm-flyover{display:none!important}
   .ttm-w>span{transform:none!important}
 }
 </style>
@@ -305,7 +320,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   <div class="ttm-cloud" data-depth="0.25" data-offset="0.5" data-lite="1" style="left:77%;width:470px;height:235px;opacity:0.62"><span></span></div>
   <div class="ttm-cloud" data-depth="0.36" data-offset="0.66" data-lite="0" style="left:6%;width:310px;height:155px;opacity:0.5"><span></span></div>
   <div class="ttm-cloud" data-depth="0.14" data-offset="0.82" data-lite="0" style="left:42%;width:540px;height:270px;opacity:0.38"><span></span></div>
+</div>
+
+<div class="ttm-flyover" aria-hidden="true">
   <div class="ttm-plane" data-plane><i></i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5L21 16z"/></svg></div>
+  <div class="ttm-cloud ttm-wisp" data-depth="0.62" data-offset="0.20" data-lite="1" style="left:60%;width:300px;height:120px;opacity:0.3"><span></span></div>
+  <div class="ttm-cloud ttm-wisp" data-depth="0.78" data-offset="0.70" data-lite="1" style="left:72%;width:240px;height:96px;opacity:0.24"><span></span></div>
 </div>
 
 <nav data-nav class="ttm-nav">
@@ -702,15 +722,23 @@ class Component extends DCLogic {
        path across LEGS crossings of the page and banks into the slope,
        fading at each edge so the wrap is never seen. */
     const flight = root.querySelector('[data-flight]');
-    const sky = flight && animate ? root.querySelector('[data-plane]') : null;
-    const clouds = flight && animate ? [...flight.querySelectorAll('.ttm-cloud')].map(el => ({
+    const flyover = root.querySelector('.ttm-flyover');
+    const sky = animate ? root.querySelector('[data-plane]') : null;
+    // Both layers' clouds ride the same wrap loop — the background banks and
+    // the overlay wisps only differ by depth and where they are painted.
+    const clouds = animate ? [...root.querySelectorAll('.ttm-cloud')].map(el => ({
       el,
       depth: parseFloat(el.getAttribute('data-depth')) || .2,
       offset: parseFloat(el.getAttribute('data-offset')) || 0,
       h: el.offsetHeight || 200,
     })) : [];
-    const LEGS = 2;
-    if (flight && !animate) flight.style.display = 'none';
+    // Legs the plane climbs over one full page scroll. Faster than any cloud
+    // depth below, so it visibly overtakes them rather than drifting along.
+    const LEGS = 3;
+    if (!animate) {
+      if (flight) flight.style.display = 'none';
+      if (flyover) flyover.style.display = 'none';
+    }
 
     let ticking = false, navOn = null, lastY = -1, lastP = -1;
     const apply = () => {
@@ -744,14 +772,17 @@ class Component extends DCLogic {
       }
       if (sky && moved) {
         const vh = window.innerHeight, vw = window.innerWidth;
-        const t = (p * LEGS) % 1;                       // 0..1 within one crossing
-        const px = -130 + t * (vw + 260);
-        const py = vh * 0.15 + Math.sin(t * Math.PI * 2) * vh * 0.055;
-        // Bank into the climb: the slope of the sine the plane is riding.
-        const bank = Math.cos(t * Math.PI * 2) * -9;
-        const edge = Math.min(t, 1 - t);                // fade the wrap away
+        const t = (p * LEGS) % 1;                 // 0..1 within one climb
+        // Climbs from below the fold to above it, so each leg hands over to
+        // the next entirely off screen — no visible wrap to hide.
+        const py = (vh + 200) * (1 - t) - 100;
+        // Holds a lane down the right of the page, swaying as it goes.
+        const sway = Math.sin(t * Math.PI * 2);
+        const px = vw * 0.78 + sway * vw * 0.07;
+        // Roll into the sway: dx/dt, so it banks the way it is actually turning.
+        const bank = Math.cos(t * Math.PI * 2) * 13;
         sky.style.transform = 'translate3d(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px,0) rotate(' + bank.toFixed(2) + 'deg)';
-        sky.style.opacity = (Math.min(1, edge / 0.07) * 0.82).toFixed(3);
+        sky.style.opacity = '0.95';
       }
       if (moved) lastP = p;
       if (parallax && y < window.innerHeight && y !== lastY) {
