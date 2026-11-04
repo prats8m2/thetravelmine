@@ -4,8 +4,9 @@
    Edit the social links here. They are used on every page (home, Privacy
    Policy, Terms & Conditions).
 
-   Leave a value as "" to hide that link everywhere — no dead links appear
-   on the live site. If all three are empty, the whole "Follow" block hides.
+   Leave a value as "" and that link does not appear at all — it is not in
+   the page, not even as hidden text. If all three are empty, the whole
+   "Follow" block is left out.
 
      INSTAGRAM_URL  e.g. "https://www.instagram.com/yourhandle"
      FACEBOOK_URL   e.g. "https://www.facebook.com/yourpage"
@@ -20,31 +21,45 @@ window.TTM_CONFIG = {
 
 /* --- Wiring (no need to edit below) ------------------------------------- */
 (function () {
-  var KEYS = { instagram: "INSTAGRAM_URL", facebook: "FACEBOOK_URL", whatsapp: "WHATSAPP_URL" };
+  var LINKS = [
+    ["Instagram", "INSTAGRAM_URL"],
+    ["Facebook", "FACEBOOK_URL"],
+    ["WhatsApp", "WHATSAPP_URL"]
+  ];
 
-  // Links ship hidden (display:none) in the HTML and are revealed only when a
-  // real https URL is configured, so nothing dead flashes on screen first.
-  function applySocial() {
-    var cfg = window.TTM_CONFIG || {};
-    var links = document.querySelectorAll("[data-social]");
-    for (var i = 0; i < links.length; i++) {
-      var a = links[i];
-      var url = String(cfg[KEYS[a.getAttribute("data-social")]] || "").trim();
-      if (/^https:\/\//i.test(url)) {
-        a.setAttribute("href", url);
-        a.setAttribute("target", "_blank");
-        a.setAttribute("rel", "noopener");
-        a.style.display = "";
-      } else {
-        a.removeAttribute("href");
-        a.style.display = "none";
-      }
+  function activeLinks() {
+    var cfg = window.TTM_CONFIG || {}, out = [];
+    for (var i = 0; i < LINKS.length; i++) {
+      var url = String(cfg[LINKS[i][1]] || "").trim();
+      if (/^https:\/\//i.test(url)) out.push({ label: LINKS[i][0], url: url });
     }
-    var groups = document.querySelectorAll("[data-social-group]");
-    for (var j = 0; j < groups.length; j++) {
-      var g = groups[j], any = false, kids = g.querySelectorAll("[data-social]");
-      for (var k = 0; k < kids.length; k++) if (kids[k].style.display !== "none") any = true;
-      g.style.display = any ? "" : "none";
+    return out;
+  }
+
+  function linkHTML(l) {
+    var safe = l.url.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+    return '<a href="' + safe + '" target="_blank" rel="noopener">' + l.label + "</a>";
+  }
+
+  // Each page has empty slots (data-social-slot). Links are written into them
+  // only when configured, so empty URLs leave nothing in the page at all.
+  function applySocial() {
+    var links = activeLinks();
+    var sig = links.map(function (l) { return l.url; }).join("|");
+    var slots = document.querySelectorAll("[data-social-slot]");
+    for (var i = 0; i < slots.length; i++) {
+      var slot = slots[i];
+      if (!links.length) { if (slot.firstChild) slot.innerHTML = ""; continue; }
+      if (slot.getAttribute("data-filled") === sig && slot.firstChild) continue;
+      var anchors = links.map(linkHTML).join("");
+      if (slot.getAttribute("data-social-slot") === "contact") {
+        slot.innerHTML =
+          '<div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.8)">Follow</div>' +
+          '<div style="display:flex;gap:16px;margin-top:8px;font-size:16px;font-weight:600">' + anchors + "</div>";
+      } else {
+        slot.innerHTML = anchors;
+      }
+      slot.setAttribute("data-filled", sig);
     }
   }
 

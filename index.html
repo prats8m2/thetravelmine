@@ -282,6 +282,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .ttm-mq span.pl{display:inline-flex;align-items:center;color:var(--red)}
 .ttm-mq span.pl svg{width:15px;height:15px}
 
+/* Social links are injected by site-config.js only when a URL is set. */
+[data-social-slot]:empty{display:none}
+[data-social-slot] a{color:inherit}
+[data-social-slot="contact"] a{color:#fff}
+[data-social-slot="contact"] a:hover{color:#FFF3EA}
+
 /* --- Mobile scroll performance ---------------------------------------
    Backdrop blur, parallax and looping decorative animations are the three
    things that make scrolling stutter on phones. Drop them below 820px and
@@ -561,7 +567,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
     <div data-glass style="position:relative;background:rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.3);border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:26px">
       <div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.8)">Corporate Office</div><div style="font-size:16px;line-height:1.6;margin-top:8px"><strong>The Travel Mine</strong><br>Shop No 5, Plot No 5, Gravity Prime, Sector 5,<br>MIDC Taloja Road, Taloja MIDC, Navi Mumbai,<br>Raigad, Maharashtra – 410208, India</div></div>
       <div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.8)">Write</div><div style="font-size:16px;line-height:1.6;margin-top:8px"><a href="mailto:info@thetravelmine.com" style="color:#fff" style-hover="color:#FFF3EA">info@thetravelmine.com</a><br><a href="mailto:sales@thetravelmine.com" style="color:#fff" style-hover="color:#FFF3EA">sales@thetravelmine.com</a></div></div>
-      <div data-social-group style="display:none"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.8)">Follow</div><div style="display:flex;gap:16px;margin-top:8px;font-size:16px;font-weight:600"><a data-social="instagram" style="color:#fff;display:none" style-hover="color:#FFF3EA">Instagram</a><a data-social="facebook" style="color:#fff;display:none" style-hover="color:#FFF3EA">Facebook</a><a data-social="whatsapp" style="color:#fff;display:none" style-hover="color:#FFF3EA">WhatsApp</a></div></div>
+      <div data-social-slot="contact"></div>
     </div>
   </div>
 </section>
